@@ -1,3 +1,38 @@
+
+
+
+# Project Title
+### Back-end E-Commerce
+
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+# Description
+#### This is a mock up for the back-end of an eCommerce website. 
+
+## Table of Contents
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [License](#License)
+* [Contributing](#Contribution)
+* [Requirements](#Requirements)
+* [Questions](#Contact)
+
+## Installation
+#### You will need to install certain dependencies.  
+#### Initialize node and then install mysql2, sequelize and dotenv
+
+## Usage
+https://drive.google.com/file/d/1olK42zq_ITjvqbFTK2iCFAvsTGPKAU-U/view
+
+
+## License
+#### MIT
+
+## Contribution
+#### nope
+
+### Requirements
 AS A manager at an internet retail company
 I WANT a back end for my e-commerce website that uses the latest technologies
 SO THAT my company can compete with other e-commerce companies
@@ -68,3 +103,10 @@ Your database should contain the following four models, including the requiremen
   - `tag_id`
   - Integer
   - References the `tag` model's `id`
+
+
+# Contact 
+### Github: [rickysulli](http://github.com/rickysulli)
+### Email: dostuffforme@gmail.com
+  
+
