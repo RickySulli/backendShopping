@@ -20,14 +20,12 @@ Category.hasMany(Product,{
 Product.belongsToMany(Tag, {
   through:ProductTag,
   foreignKey: 'tag_id'
-  //accidentally had tag_id
 })
 
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(Product, {
   through:ProductTag,
   foreignKey: 'product_id' 
-  //accidentally had product_id
 })
 module.exports = {
   Product,
