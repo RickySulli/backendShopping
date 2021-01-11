@@ -27,34 +27,28 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   // find a single tag by its `id`
+  // be sure to include its associated Product data
   Tag.findOne({
-    when: {
+    where: {
       id: req.params.id
     },
-    // be sure to include its associated Product data
-    include: [
-      {
-        model: Product,
-        attributes: [
-          'id',
-          'product_name',
-          'stock',
-          'category_id'
-        ]
+    attributes: [
+      'id',
+      'tag_name'
+    ],
+    include: [Product]
+  })
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No tag found with this id' });
+        return;
       }
-    ]
-  })
-  .then(dbTagData => {
-    if(!dbTagData) {
-      res.status(404).json({message: "no tag found with this id"});
-      return;
-    }
-    res.json(dbTagData);
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+      res.json(dbPostData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.post('/', (req, res) => {
@@ -62,11 +56,11 @@ router.post('/', (req, res) => {
   Tag.create({
     tag_name: req.body.tag_name
   })
-  .then(dbTagData = res.json(dbTagData))
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+    .then(dbPostData => res.json(dbPostData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.put('/:id', (req, res) => {
